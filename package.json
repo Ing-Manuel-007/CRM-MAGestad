@@ -1,0 +1,85 @@
+{
+    "name": "crm-magestad",
+    "private": true,
+    "version": "1.0.7",
+    "description": "MAGestad Internet - Sistema de Gestion y Cobranza WISP",
+    "author": "MAGestad Internet",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint .",
+        "preview": "vite preview",
+        "dev:electron": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+        "build:electron": "npm run build && electron-builder",
+        "build:electron:clean": "Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue; npm run build && electron-builder",
+        "release": "npm run build && electron-builder --publish always"
+    },
+    "dependencies": {
+        "electron-log": "^5.4.4",
+        "electron-updater": "^6.8.11"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^6.0.1",
+        "concurrently": "^9.2.1",
+        "electron": "^42.2.0",
+        "electron-builder": "^26.8.1",
+        "eslint": "^10.3.0",
+        "eslint-plugin-react-hooks": "^7.1.1",
+        "eslint-plugin-react-refresh": "^0.5.2",
+        "firebase": "^12.13.0",
+        "globals": "^17.6.0",
+        "lucide-react": "^1.16.0",
+        "react": "^19.2.6",
+        "react-dom": "^19.2.6",
+        "react-router-dom": "^7.15.1",
+        "vite": "^8.0.12",
+        "wait-on": "^9.0.10",
+        "xlsx": "^0.18.5"
+    },
+    "main": "electron/main.cjs",
+    "build": {
+        "appId": "com.magestad.internet",
+        "productName": "MAGestad Internet",
+        "copyright": "Copyright (c) 2026 MAGestad Internet",
+        "directories": {
+            "output": "dist_electron"
+        },
+        "files": [
+            "dist/**/*",
+            "electron/**/*",
+            "assets/**/*",
+            "package.json",
+            "!src/**/*",
+            "!.env",
+            "!*.md"
+        ],
+        "asar": true,
+        "win": {
+            "icon": "public/logo.png",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "shortcutName": "MAGestad Internet"
+        },
+        "publish": {
+            "provider": "github",
+            "owner": "Ing-Manuel-007",
+            "repo": "CRM-MAGestad"
+        }
+    }
+}
