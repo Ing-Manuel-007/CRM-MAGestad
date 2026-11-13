@@ -1,7 +1,7 @@
 {
     "name": "crm-magestad",
     "private": true,
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "MAGestad Internet - Sistema de Gestion y Cobranza WISP",
     "author": "MAGestad Internet",
     "type": "module",
@@ -17,7 +17,8 @@
     },
     "dependencies": {
         "electron-log": "^5.4.4",
-        "electron-updater": "^6.8.11"
+        "electron-updater": "^6.8.11",
+        "node-thermal-printer": "^4.6.1"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
