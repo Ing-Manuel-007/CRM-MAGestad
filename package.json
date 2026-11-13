@@ -1,7 +1,7 @@
 {
     "name": "crm-magestad",
     "private": true,
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "MAGestad Internet - Sistema de Gestion y Cobranza WISP",
     "author": "MAGestad Internet",
     "type": "module",
